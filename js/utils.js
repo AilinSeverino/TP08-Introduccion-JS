@@ -3,22 +3,18 @@ function CalcularEdad(fechaN)
     const fechaNa = new Date (fechaN);
     const fechaH = new Date ();
 
+    if (isNaN(fechaNa.getTime())) {
+        return "Fecha de nacimiento inválida";
+    }
+
     let edad = fechaH.getFullYear() - fechaNa.getFullYear();
     const mes = fechaH.getMonth() - fechaNa.getMonth();
 
-    if(mes > 0 || mes === 0 && hoy.getDate() < fechaNa.getDate())
+    if(mes < 0 || mes === 0 && fechaH.getDate() < fechaNa.getDate())
     {
         edad--;
     }
     return edad;
-}
-
-function mostrarResultado(mensaje)
-{
-    const men = mensaje;
-
-    const divResultado = document.getElementById("resultado");
-    divResultado.innerHTML += mensaje;
 }
 
 function tirandoFruta() 
@@ -35,6 +31,7 @@ function tirandoFruta()
         "fruta del dragon",
         "melon"
     ];
+    return frutas;
     
 }
 
@@ -51,13 +48,57 @@ function comparando()
     return {uno, dos, tres, ver};
 }
 
-function ejercicio4() 
+function crearObj() 
 {
     const ciudad = 
     {
         nombre: "Barcelona",
-        fechaFundacion: "Siglo I a.C.",
+        fechaFundacion: "17/09/2025",
         poblacion: 1620343,
-        extension: "101.9 km²"
+        extension: "101.9 km"
     };
+
+    return ciudad;
+}
+
+function duplicarElementos(numeros)
+{
+    const nuevo = [];
+    for (let i = 0; i < numeros.length; i++) 
+    {
+        nuevo.push(numeros[i] * 2);
+    }
+    return nuevo;
+}
+
+function dibujarTrianguloA()
+{
+    let triangulo = "";
+    for (let i = 1; i <= 5; i++) {
+        let linea = "";
+        for (let j = 0; j < i; j++) {
+            linea += "*";
+        }
+        triangulo += linea + "\n";
+    }
+    console.log(triangulo);
+}
+
+function dibujarTrianguloB()
+{
+    const lineasPatron = [
+        "----*-----",
+        "---***---",
+        "--*******--",
+        "-*********-",
+        "***********"
+    ];
+
+    let patronCompleto = "";
+    lineasPatron.forEach(linea => {
+        patronCompleto += linea + "\n";
+    });
+
+    console.log(patronCompleto);
+    return patronCompleto;
 }

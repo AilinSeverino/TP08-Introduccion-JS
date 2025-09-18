@@ -102,3 +102,46 @@ function dibujarTrianguloB()
     console.log(patronCompleto);
     return patronCompleto;
 }
+
+function nombresA(listaNombres)
+{
+    const nombresLista = listaNombres.split(',').map(nombre => nombre.trim());
+    const nombresConA = nombresLista.filter(nombre => nombre.startsWith('A') || nombre.startsWith('a'));
+    return nombresConA;
+}
+
+function CalcularReemplazo(longString, palabraAReemplazar, reemplazo)
+{
+    const a = longString.replaceAll(palabraAReemplazar, reemplazo);
+    return a;
+}
+
+function hacerCambio(longString, numero)
+{
+    const a = longString.slice(0, numero);
+    return a;
+}
+
+function encontrarGuion(lista)
+{
+    const elementos = lista.split(',').map(elemento => elemento.trim());
+    const stringFinal = elementos.join(' - ');
+    return stringFinal;
+}
+
+function calcularRecaudacionTotal(listaPedidos)
+{
+    const pedidos = listaPedidos.split(',');
+    let totalRecaudado = 0;
+
+    pedidos.forEach(pedido => {
+        const partes = pedido.split(':');
+        const total = parseFloat(partes[1]);
+
+        if (!isNaN(total)) {
+            totalRecaudado += total;
+        } 
+    });
+
+    return totalRecaudado.toFixed(2);
+}
